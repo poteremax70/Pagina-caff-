@@ -1,70 +1,186 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
+  padding: 0;
+  width: 100%;
   min-height: 100%;
 }
 
 body {
   font-family: Arial, sans-serif;
-  color: #fff;
-  background:
-    linear-gradient(rgba(35,18,12,.25), rgba(35,18,12,.45)),
-    url("img/sfondo.png") center center / cover fixed no-repeat;
+  color: white;
+
+  /*
+    SFONDO:
+    il file deve essere nella stessa cartella
+    di index.html e styles.css
+  */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.18),
+      rgba(0, 0, 0, 0.38)
+    ),
+    url("sfondo.jpg");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
 }
 
+
+/* CONTENITORE PRINCIPALE */
+
 .page {
-  width: min(92%, 520px);
+  width: 100%;
+  max-width: 520px;
   min-height: 100vh;
+
   margin: 0 auto;
-  padding: 45px 0 30px;
-  text-align: center;
+
+  padding:
+    45px 25px 30px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  text-align: center;
 }
+
+
+/* FOTO / LOGO */
 
 .profile-photo {
-  width: 145px;
-  height: 145px;
+  width: 155px;
+  height: 155px;
+
   object-fit: cover;
+
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,.95);
-  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+
+  border: 4px solid white;
+
+  background: white;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35);
 }
+
+
+/* TITOLO */
 
 h1 {
-  margin: 18px 0 25px;
-  font-size: 34px;
-  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+  margin: 20px 0 28px;
+
+  font-size: 36px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.65);
 }
 
-.links {
-  width: 100%;
-}
 
-.link-button {
-  display: block;
+/* PULSANTE CHAT */
+
+.chat-button {
   width: 100%;
-  padding: 18px 20px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.94);
-  color: #24150f;
+
+  min-height: 68px;
+
+  padding: 16px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: #17243f;
+
   text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 8px 22px rgba(0,0,0,.28);
-  transition: transform .15s, background .15s;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  box-shadow:
+    0 9px 25px rgba(0, 0, 0, 0.30);
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
-.link-button:hover {
-  transform: translateY(-2px);
-  background: #fff;
+
+/* ICONA */
+
+.chat-icon {
+  font-size: 28px;
+  line-height: 1;
 }
+
+
+/* EFFETTO PRESSIONE */
+
+.chat-button:active {
+  transform: scale(0.97);
+}
+
+
+/* PASSAGGIO DEL MOUSE */
+
+.chat-button:hover {
+  background: white;
+}
+
+
+/* PIEDE PAGINA */
 
 footer {
   margin-top: auto;
   padding-top: 30px;
+
   font-size: 13px;
-  text-shadow: 0 1px 5px rgba(0,0,0,.6);
+
+  color: white;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+/* SCHERMI PICCOLI */
+
+@media (max-width: 380px) {
+
+  .page {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .profile-photo {
+    width: 135px;
+    height: 135px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .chat-button {
+    min-height: 62px;
+    font-size: 20px;
+  }
+
 }
