@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#120D0A">
   <title>Troviamoci</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="img/icon-192.png">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
 </head>
 
 <body>
@@ -38,11 +41,65 @@
       <span>Chat</span>
     </a>
 
+    <button id="install-button" class="chat-button install-button" hidden>
+      <span class="chat-icon">⬇️</span>
+      <span>Installa app</span>
+    </button>
+
+    <p id="install-hint" class="install-hint" hidden>
+      Per installare: apri il menu del browser (⋮) e scegli "Aggiungi a schermata Home".
+    </p>
+
     <footer>
       Troviamoci
     </footer>
 
   </main>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+
+    const installButton = document.getElementById("install-button");
+    const installHint = document.getElementById("install-hint");
+    let deferredPrompt = null;
+
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      if (!isStandalone) {
+        installButton.hidden = false;
+      }
+    });
+
+    installButton?.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      installButton.hidden = true;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+    });
+
+    window.addEventListener("appinstalled", () => {
+      installButton.hidden = true;
+      installHint.hidden = true;
+    });
+
+    // Se dopo 2 secondi il prompt automatico non è disponibile
+    // (es. iOS/Safari) mostra l'istruzione manuale come fallback.
+    setTimeout(() => {
+      if (!isStandalone && !deferredPrompt) {
+        installHint.hidden = false;
+      }
+    }, 2000);
+  </script>
 
 </body>
 </html>

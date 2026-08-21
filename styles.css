@@ -104,6 +104,27 @@ h1 {
   line-height: 1;
 }
 
+/* PULSANTE INSTALLA APP */
+.install-button {
+  margin-top: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.install-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* SUGGERIMENTO INSTALLAZIONE MANUALE */
+.install-hint {
+  margin-top: 14px;
+  max-width: 320px;
+  font-size: 13px;
+  opacity: 0.85;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
 /* FOOTER */
 footer {
   margin-top: 30px;
