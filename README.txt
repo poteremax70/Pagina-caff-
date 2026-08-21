@@ -1,15 +1,24 @@
 TROVIAMOCI - pagina link
 
 Immagini:
-- img/foto.png = logo/foto circolare
-- img/sfondo.png = immagine di sfondo
+- img/foto.png = logo "Ti va un caffè" in alto a sinistra (sfondo trasparente)
+- img/sfondo.png = immagine di sfondo a tutta pagina
+- img/foto2.png = non più mostrata in pagina, lasciata nella cartella ma inutilizzata
 
-Puoi sostituire queste immagini direttamente da GitHub mantenendo gli stessi nomi.
+Puoi sostituire img/foto.png e img/sfondo.png direttamente da GitHub mantenendo gli stessi nomi.
+Se la nuova foto.png ha uno sfondo bianco pieno, chiedi di renderla trasparente prima di caricarla,
+altrimenti apparirà un riquadro bianco intorno al logo.
 
 Link attuale:
 Chat -> https://anonima-jb41.onrender.com
 
-Per aggiungere altri pulsanti, copia il blocco <a class="link-button">...</a> dentro index.html.
+Layout pagina:
+- Logo in alto a sinistra (non copre il viso del personaggio sullo sfondo)
+- Pulsante "Chat" in basso, stile chiaro con bordo dorato e icona rotonda marrone
+- Nessun titolo di testo sopra il pulsante Chat (rimosso su richiesta)
+
+Per aggiungere altri pulsanti, copia il blocco <a class="chat-button">...</a> dentro index.html
+e cambia link/testo/icona.
 
 INSTALLAZIONE COME APP (PWA)
 La pagina ora è installabile come una vera app, non solo come scorciatoia:
