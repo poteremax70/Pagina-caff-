@@ -98,12 +98,25 @@ body {
   flex-shrink: 0;
 }
 
+.icon-photo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(200, 150, 90, 0.6);
+}
+
 /* PULSANTE INSTALLA APP */
 .install-button {
   margin-top: 16px;
   margin-bottom: 0;
   cursor: pointer;
   font-family: inherit;
+}
+
+.site-button {
+  margin-top: 14px;
 }
 
 /* SUGGERIMENTO INSTALLAZIONE MANUALE */
@@ -147,6 +160,11 @@ footer {
     width: 40px;
     height: 40px;
     font-size: 19px;
+  }
+
+  .icon-photo {
+    width: 40px;
+    height: 40px;
   }
 
   footer {
